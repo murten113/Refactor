@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
+using UnityEngine.UI;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class PlayerScript : MonoBehaviour
     public event Action OnBeforeMove;
 
     internal float movementSpeedMultiplier;
+
+    public Climbing Climbing;
 
     PlayerInput playerInput;
     InputAction moveAction;
@@ -93,6 +96,22 @@ public class PlayerScript : MonoBehaviour
     void UpdateGravity()
     {
         var gravity = Physics.gravity * mass * Time.deltaTime;
-        velocity.y = Controller.isGrounded ? -1f : velocity.y + gravity.y;
+
+        if (Climbing.climbing)
+        {
+            velocity.y = Climbing.climbSpeed;
+            Debug.Log("Climbing - No gravity applied.");
+        }
+        else if (Controller.isGrounded)
+        {
+            velocity.y = -1f;
+            Debug.Log("Grounded - Gravity reset.");
+        }
+        else
+        {
+            velocity.y += gravity.y;
+            Debug.Log("Falling - Gravity applied: " + gravity.y);
+        }
     }
+
 }
