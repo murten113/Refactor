@@ -18,6 +18,8 @@ public class PlayerSprinting : MonoBehaviour
     private PlayerInput playerInput;
     private InputAction sprintAction;
 
+
+    //get all the needed components for the sprinting mechanic
     private void Awake()
     {
         player = GetComponent<PlayerScript>();
@@ -37,6 +39,7 @@ public class PlayerSprinting : MonoBehaviour
         HandleStamina();
     }
 
+    //check if the player is sprinting, if so start depleting the stamina bar and quit sprinting if the stamina bar is empty. If the player isnt sprinting let he stamina bar regenerate
     private void HandleStamina()
     {
         if (isSprinting)
@@ -45,7 +48,7 @@ public class PlayerSprinting : MonoBehaviour
             if (currentStamina <= 0)
             {
                 currentStamina = 0;
-                isSprinting = false; // Stop sprinting when out of stamina
+                isSprinting = false; 
             }
         }
         else
@@ -58,6 +61,7 @@ public class PlayerSprinting : MonoBehaviour
             staminaBar.value = currentStamina;
     }
 
+    //apply a speed boost to the pleyer if theyre sprinting
     public void OnBeforeMove()
     {
         float sprintInput = sprintAction.ReadValue<float>();
