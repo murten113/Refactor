@@ -74,9 +74,7 @@ public class PlayerSprinting : MonoBehaviour
             player.movementSpeedMultiplier *= multiplier;
         }
         else
-        {
             isSprinting = false;
-        }
     }
 
     private void OnEnable() => player.OnBeforeMove += OnBeforeMove;

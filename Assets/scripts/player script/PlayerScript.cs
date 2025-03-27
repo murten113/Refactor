@@ -105,6 +105,7 @@ public class PlayerScript : MonoBehaviour
         else if (Controller.isGrounded)
         {
             velocity.y = -1f;
+            Climbing.climbTimer = Climbing.maxClimbTime;
             Debug.Log("Grounded - Gravity reset.");
         }
         else

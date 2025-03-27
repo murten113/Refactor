@@ -6,34 +6,39 @@ using UnityEngine;
 public class Climbing : MonoBehaviour
 {
     [Header("References")]
-    private Transform orientation;
-    private Rigidbody rb;
-    private LayerMask whatIsWall;
-    private GroundCheck GC;
+    public Transform orientation;
+    public Rigidbody rb;
+    public LayerMask whatIsWall;
+    public GroundCheck GC;
 
     [Header("Climbing")]
     public float climbSpeed;
-    private float maxClimbTime;
-    private float climbTimer;
+    public float maxClimbTime;
+    public float climbTimer;
 
     public bool climbing;
 
     [Header("Detection")]
-    private float detectionLength;
-    private float sphereCastRadius;
-    private float maxWallLookingAngle;
+    public float detectionLength;
+    public float sphereCastRadius;
+    public float maxWallLookingAngle;
     private float wallLookingAngle;
 
-    private RaycastHit frontwallHit;
+    public RaycastHit frontwallHit;
     private bool wallFront;
 
-
+    //set the climb timer to the set max climb time at the beginning
+    private void Start()
+    {
+        climbTimer = maxClimbTime;
+    }
     private void Update()
     {
         WallCheck();
         StateMachine();
 
-        if(climbing) ClimbingMovement();
+        if(climbing) 
+            ClimbingMovement();
     }
 
     //start climbing if the W key is pressed and the wall is meeting the walcheck conditions
@@ -74,8 +79,7 @@ public class Climbing : MonoBehaviour
     //check if the player is looking at a wall at the right angle and distance for climbing 
     private void WallCheck()
     {
-        wallFront = Physics.SphereCast(transform.position, sphereCastRadius, orientation.forward,
-                                       out frontwallHit, detectionLength, whatIsWall);
+        wallFront = Physics.SphereCast(transform.position, sphereCastRadius, orientation.forward, out frontwallHit, detectionLength, whatIsWall);
 
         if (wallFront)
         {
@@ -85,12 +89,6 @@ public class Climbing : MonoBehaviour
         else
         {
             Debug.Log("No wall detected.");
-        }
-
-        if (GC.grounded)
-        {
-            climbTimer = maxClimbTime;
-            Debug.Log("Player grounded, reset climbTimer.");
         }
     }
 
@@ -107,7 +105,7 @@ public class Climbing : MonoBehaviour
     private void StartClimbing()
     {
         climbing = true;
-        rb.useGravity = false;  
+        rb.useGravity = false;
     }
 
     private void StopClimbing()
