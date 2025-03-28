@@ -31,7 +31,7 @@ public class PlayerScript : MonoBehaviour
     Vector2 look;
 
 
-    void Awake()
+   private void Awake()
     {
         Controller = GetComponent<CharacterController>();
         playerInput = GetComponent<PlayerInput>();
@@ -39,19 +39,19 @@ public class PlayerScript : MonoBehaviour
         lookAction = playerInput.actions["Look"];
         sprintAction = playerInput.actions["Sprint"];
     }
-    void Start()
+    private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
     }
 
-    void Update()
+    private void Update()
     {
         UpdateLook();
         UpdateMovement();
         UpdateGravity();
     }
 
-    void UpdateLook()
+    public void UpdateLook()
     {
         var lookInput = lookAction.ReadValue<Vector2>();
         look.x += lookInput.x * mouseSens;
@@ -76,7 +76,7 @@ public class PlayerScript : MonoBehaviour
         return input;
     }
 
-    void UpdateMovement()
+    public void UpdateMovement()
     {
         movementSpeedMultiplier = 1f;
         OnBeforeMove?.Invoke();
@@ -93,7 +93,7 @@ public class PlayerScript : MonoBehaviour
         Controller.Move(velocity * Time.deltaTime);
     }
 
-    void UpdateGravity()
+    public void UpdateGravity()
     {
         var gravity = Physics.gravity * mass * Time.deltaTime;
 

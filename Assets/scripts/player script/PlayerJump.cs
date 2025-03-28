@@ -8,7 +8,7 @@ using UnityEngine;
 public class PlayerJump : MonoBehaviour
 {
 
-    //{
+    //this area is to make all the needed bools n floats n stufz
 
     PlayerScript player;
 
@@ -18,17 +18,17 @@ public class PlayerJump : MonoBehaviour
     private bool tryingToJump;
     private float lastJumpPressTime;
 
-    //}this area is to make all the needed bools n floats n stufz
+    
 
-    //{
+    //this is to get the playescript so this script can access the info within
     private void Awake()
     {
         player = GetComponent<PlayerScript>();
     }
 
-    //} this is to get the playescript so this script can access the info within
+    
 
-    //{
+    
     private void OnEnable()
     {
         player.OnBeforeMove += OnBeforeMove;
@@ -40,9 +40,9 @@ public class PlayerJump : MonoBehaviour
         player.OnBeforeMove -= OnBeforeMove;
     }
 
-    //} 
+    
 
-    //{
+    //this part of the code checks if the player is trying to jump and if they are the code putsa force on the player to move it up
     public void OnJump()
     {
         tryingToJump = true;
@@ -62,5 +62,5 @@ public class PlayerJump : MonoBehaviour
         tryingToJump = false;
     }
 
-    //} in this area the code checks if the player is trying to jump and if they are the code putsa force on the player to move it up
+    
 }

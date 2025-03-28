@@ -6,9 +6,9 @@ public class collectible : MonoBehaviour
     public static event Action OnCollected;
     public static int total;
 
-    void Awake() => total++;
+    private void Awake() => total++;
 
-    void Update()
+    private void Update()
     {
         transform.localRotation = Quaternion.Euler(90f, Time.time * 100f, 0);
     }

@@ -8,23 +8,23 @@ public class collectibleCount : MonoBehaviour
     int count;
 
 
-    void Start() => UpdateCount();
+    private void Start() => UpdateCount();
 
-    void Awake()
+    private void Awake()
     {
        text = GetComponent<TMPro.TMP_Text>();
     }
 
-    void OnEnable() => collectible.OnCollected += OnCollectibleCollected;
-    void OnDisable() => collectible.OnCollected -= OnCollectibleCollected;
+    private void OnEnable() => collectible.OnCollected += OnCollectibleCollected;
+    private void OnDisable() => collectible.OnCollected -= OnCollectibleCollected;
 
-    void OnCollectibleCollected()
+    public void OnCollectibleCollected()
     {
         count++;
         UpdateCount();
     }
 
-    void UpdateCount()
+    public void UpdateCount()
     {
         text.text = $"{count} / {collectible.total}";
     }

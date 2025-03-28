@@ -7,7 +7,7 @@ public class PlatformRotate : MonoBehaviour
 
     [SerializeField] float rotateDirection = 100f;
 
-    void Update()
+    private void Update()
     {
         transform.localRotation = Quaternion.Euler(0, Time.time * rotateDirection, 0);
     }
