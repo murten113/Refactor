@@ -8,11 +8,11 @@ using UnityEngine.UI;
 
 public class PlayerScript : MonoBehaviour
 {
-    [SerializeField] float mouseSens = 3f;
-    [SerializeField] float moveSpeed = 6f;
-    [SerializeField] float mass = 1f;
-    [SerializeField] float acceleration = 20f;
-    [SerializeField] Transform cameraTransform;
+    [SerializeField] public float mouseSens = 3f;
+    [SerializeField] public float moveSpeed = 6f;
+    [SerializeField] public float mass = 1f;
+    [SerializeField] public float acceleration = 20f;
+    [SerializeField] private Transform cameraTransform;
 
     public event Action OnBeforeMove;
 
@@ -23,7 +23,6 @@ public class PlayerScript : MonoBehaviour
     PlayerInput playerInput;
     InputAction moveAction;
     InputAction lookAction;
-    InputAction sprintAction;
 
 
     internal CharacterController Controller;
@@ -31,19 +30,24 @@ public class PlayerScript : MonoBehaviour
     Vector2 look;
 
 
+
+    //get all the needed components when the script first starts
    private void Awake()
     {
         Controller = GetComponent<CharacterController>();
         playerInput = GetComponent<PlayerInput>();
         moveAction = playerInput.actions["Move"];
         lookAction = playerInput.actions["Look"];
-        sprintAction = playerInput.actions["Sprint"];
     }
+
+    //lock the mouse so the players mouse doesnt move across the screen or go to a diffirent screen for those with more than one screen
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
     }
 
+
+    //keep all the looking, movement and gravity scripts in check every frame
     private void Update()
     {
         UpdateLook();
@@ -51,6 +55,8 @@ public class PlayerScript : MonoBehaviour
         UpdateGravity();
     }
 
+
+    //read the mouse input and add it to the camera so it follows
     public void UpdateLook()
     {
         var lookInput = lookAction.ReadValue<Vector2>();
@@ -64,6 +70,8 @@ public class PlayerScript : MonoBehaviour
 
     }
 
+
+    //get the needed input for the movement
     Vector3 GetMovementInput()
     {
         var moveInput = moveAction.ReadValue<Vector2>();
@@ -76,6 +84,8 @@ public class PlayerScript : MonoBehaviour
         return input;
     }
 
+
+    //when the input says the player needs to move foreward add a vector to the player so it moves in said direction
     public void UpdateMovement()
     {
         movementSpeedMultiplier = 1f;
@@ -93,6 +103,8 @@ public class PlayerScript : MonoBehaviour
         Controller.Move(velocity * Time.deltaTime);
     }
 
+
+    //when the player is climbing turn the player script gravity off so it doesnt interfere, and when the player is grounded reset the climb timer and if he stopped climbing reapply gravity
     public void UpdateGravity()
     {
         var gravity = Physics.gravity * mass * Time.deltaTime;
