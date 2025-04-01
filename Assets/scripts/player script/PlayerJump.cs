@@ -42,7 +42,7 @@ public class PlayerJump : MonoBehaviour
 
     
 
-    //this part of the code checks if the player is trying to jump and if they are the code putsa force on the player to move it up
+    //this part of the code checks if the player is trying to jump and if they are the code puts a force on the player on the y axis to move it up
     public void OnJump()
     {
         tryingToJump = true;
