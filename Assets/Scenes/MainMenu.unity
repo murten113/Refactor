@@ -205,19 +205,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 144976162}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1905833009}
-        m_TargetAssemblyTypeName: MainMenuController, Assembly-CSharp
-        m_MethodName: LoadGame
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &144976162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -842,19 +830,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1520190428}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1905833009}
-        m_TargetAssemblyTypeName: MainMenuController, Assembly-CSharp
-        m_MethodName: QuitGame
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1520190428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1151,6 +1127,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a056f9542af67d74281dd8166b751c2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadGameButton: {fileID: 144976161}
+  quitGameButton: {fileID: 1520190427}
 --- !u!114 &1905833010
 MonoBehaviour:
   m_ObjectHideFlags: 0
