@@ -1976,8 +1976,6 @@ GameObject:
   - component: {fileID: 580516608}
   - component: {fileID: 580516611}
   - component: {fileID: 580516609}
-  - component: {fileID: 580516610}
-  - component: {fileID: 580516613}
   - component: {fileID: 580516612}
   - component: {fileID: 580516614}
   m_Layer: 6
@@ -2076,20 +2074,6 @@ MonoBehaviour:
   sprintDrainRate: 1
   staminaRegenRate: 0.5
   staminaBar: {fileID: 16995012}
---- !u!114 &580516610
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 580516604}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3dcafaa44ed40c4ab6047ac8af5ed65, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jumpSpeed: 5
-  jumpPressBufferTime: 0.05
 --- !u!54 &580516611
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2134,7 +2118,6 @@ MonoBehaviour:
   whatIsWall:
     serializedVersion: 2
     m_Bits: 512
-  GC: {fileID: 580516613}
   climbSpeed: 4.5
   maxClimbTime: 1
   climbTimer: 0
@@ -2142,19 +2125,6 @@ MonoBehaviour:
   detectionLength: 0.8
   sphereCastRadius: 0.3
   maxWallLookingAngle: 50
---- !u!114 &580516613
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 580516604}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70afe92b8d769c44496fed8edd9f9282, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  grounded: 0
 --- !u!114 &580516614
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2173,6 +2143,8 @@ MonoBehaviour:
   acceleration: 20
   cameraTransform: {fileID: 963194228}
   Climbing: {fileID: 580516612}
+  jumpSpeed: 5
+  jumpPressBufferTime: 0.05
 --- !u!1 &616215448
 GameObject:
   m_ObjectHideFlags: 0
