@@ -1975,7 +1975,6 @@ GameObject:
   - component: {fileID: 580516607}
   - component: {fileID: 580516608}
   - component: {fileID: 580516611}
-  - component: {fileID: 580516612}
   - component: {fileID: 580516614}
   m_Layer: 6
   m_Name: Player
@@ -2083,30 +2082,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &580516612
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 580516604}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 044a630199824524a85315238ae51224, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  orientation: {fileID: 963194228}
-  rb: {fileID: 580516611}
-  whatIsWall:
-    serializedVersion: 2
-    m_Bits: 512
-  climbSpeed: 4.5
-  maxClimbTime: 1
-  climbTimer: 0
-  climbing: 0
-  detectionLength: 0.8
-  sphereCastRadius: 0.3
-  maxWallLookingAngle: 50
 --- !u!114 &580516614
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2124,14 +2099,26 @@ MonoBehaviour:
   mass: 1
   acceleration: 20
   cameraTransform: {fileID: 963194228}
-  Climbing: {fileID: 580516612}
-  jumpSpeed: 5
+  Climbing: {fileID: 0}
+  jumpSpeed: 7
   jumpPressBufferTime: 0.05
   speedMultiplier: 2
   maxStamina: 5
   sprintDrainRate: 1
   staminaRegenRate: 0.5
   staminaBar: {fileID: 16995012}
+  orientation: {fileID: 963194228}
+  rb: {fileID: 580516611}
+  whatIsWall:
+    serializedVersion: 2
+    m_Bits: 512
+  climbSpeed: 4.5
+  maxClimbTime: 2
+  climbTimer: 0
+  climbing: 0
+  detectionLength: 0.8
+  sphereCastRadius: 0.3
+  maxWallLookingAngle: 50
 --- !u!1 &616215448
 GameObject:
   m_ObjectHideFlags: 0
