@@ -92,7 +92,7 @@ public class PlayerScript : MonoBehaviour
         OnBeforeMove?.Invoke();
 
 
-       var input = GetMovementInput();
+        var input = GetMovementInput();
 
         var factor = acceleration * Time.deltaTime;
         velocity.x = Mathf.Lerp(velocity.x, input.x, factor);

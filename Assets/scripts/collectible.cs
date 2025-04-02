@@ -10,10 +10,17 @@ public class collectible : MonoBehaviour
     private void Awake() => total++;
 
 
-    //make the collectible rotate to show the player its interacable
+  
     private void Update()
     {
+        RotateItem();
+    }
+
+    //make the collectible rotate to show the player its interacable
+    private void RotateItem()
+    {
         transform.localRotation = Quaternion.Euler(90f, Time.time * 100f, 0);
+
     }
 
 

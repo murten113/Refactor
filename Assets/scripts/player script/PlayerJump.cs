@@ -27,8 +27,6 @@ public class PlayerJump : MonoBehaviour
     }
 
     
-
-    
     private void OnEnable()
     {
         player.OnBeforeMove += OnBeforeMove;
@@ -40,7 +38,6 @@ public class PlayerJump : MonoBehaviour
         player.OnBeforeMove -= OnBeforeMove;
     }
 
-    
 
     //this part of the code checks if the player is trying to jump and if they are the code puts a force on the player on the y axis to move it up
     public void OnJump()

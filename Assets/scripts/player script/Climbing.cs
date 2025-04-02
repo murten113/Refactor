@@ -9,7 +9,6 @@ public class Climbing : MonoBehaviour
     public Transform orientation;
     public Rigidbody rb;
     public LayerMask whatIsWall;
-    public GroundCheck GC;
 
     [Header("Climbing")]
     public float climbSpeed;
@@ -30,14 +29,23 @@ public class Climbing : MonoBehaviour
     //set the climb timer to the set max climb time at the beginning
     private void Start()
     {
-        climbTimer = maxClimbTime;
+        ResetTimer();
     }
     private void Update()
     {
         WallCheck();
         StateMachine();
+        ClimbEnable();
+    }
 
-        if(climbing) 
+    private void ResetTimer()
+    {
+        climbTimer = maxClimbTime;
+    }
+
+    private void ClimbEnable()
+    {
+        if (climbing)
             ClimbingMovement();
     }
 

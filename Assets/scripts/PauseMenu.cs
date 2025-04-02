@@ -26,12 +26,12 @@ public class PauseMenu : MonoBehaviour
 
     private void Update()
     {
-        checkPause();
+        CheckPause();
     }
 
 
     //this checks if the escape key gets pressed, if so then toggle between activating the pause menu or deactivating it
-    private void checkPause()
+    private void CheckPause()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {

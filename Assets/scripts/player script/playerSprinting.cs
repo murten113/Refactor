@@ -25,18 +25,23 @@ public class PlayerSprinting : MonoBehaviour
         player = GetComponent<PlayerScript>();
         playerInput = GetComponent<PlayerInput>();
         sprintAction = playerInput.actions["Sprint"];
-
         currentStamina = maxStamina;
-        if (staminaBar != null)
-        {
-            staminaBar.maxValue = maxStamina;
-            staminaBar.value = maxStamina;
-        }
+
+        SetStartStamina();
     }
 
     private void Update()
     {
         HandleStamina();
+    }
+
+    private void SetStartStamina()
+    {
+        if (staminaBar != null)
+        {
+            staminaBar.maxValue = maxStamina;
+            staminaBar.value = maxStamina;
+        }
     }
 
     //check if the player is sprinting, if so start depleting the stamina bar and quit sprinting if the stamina bar is empty. If the player isnt sprinting let he stamina bar regenerate
