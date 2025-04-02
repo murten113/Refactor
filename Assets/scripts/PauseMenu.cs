@@ -22,8 +22,16 @@ public class PauseMenu : MonoBehaviour
         quitButton.onClick.AddListener(QuitGame);
     }
 
-    //this checks if the escape key gets pressed, if so then toggle between activating the pause menu or deactivating it
+
+
     private void Update()
+    {
+        checkPause();
+    }
+
+
+    //this checks if the escape key gets pressed, if so then toggle between activating the pause menu or deactivating it
+    private void checkPause()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -37,6 +45,7 @@ public class PauseMenu : MonoBehaviour
             }
         }
     }
+    
 
     //if this gets called activate the ui, pause the game time and unlock the cursor so the player can interact with the buttons
     public void Pause()
