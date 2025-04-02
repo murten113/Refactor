@@ -1975,7 +1975,6 @@ GameObject:
   - component: {fileID: 580516607}
   - component: {fileID: 580516608}
   - component: {fileID: 580516611}
-  - component: {fileID: 580516609}
   - component: {fileID: 580516612}
   - component: {fileID: 580516614}
   m_Layer: 6
@@ -2057,23 +2056,6 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &580516609
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 580516604}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c04b900c8ccd26344a901f9e4bff5f69, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speedMultiplier: 2
-  maxStamina: 5
-  sprintDrainRate: 1
-  staminaRegenRate: 0.5
-  staminaBar: {fileID: 16995012}
 --- !u!54 &580516611
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2145,6 +2127,11 @@ MonoBehaviour:
   Climbing: {fileID: 580516612}
   jumpSpeed: 5
   jumpPressBufferTime: 0.05
+  speedMultiplier: 2
+  maxStamina: 5
+  sprintDrainRate: 1
+  staminaRegenRate: 0.5
+  staminaBar: {fileID: 16995012}
 --- !u!1 &616215448
 GameObject:
   m_ObjectHideFlags: 0

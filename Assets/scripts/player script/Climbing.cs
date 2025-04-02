@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem.XR;
 
 public class Climbing : MonoBehaviour
 {
@@ -36,6 +37,7 @@ public class Climbing : MonoBehaviour
         WallCheck();
         StateMachine();
         ClimbEnable();
+
     }
 
     private void ResetTimer()
@@ -121,5 +123,6 @@ public class Climbing : MonoBehaviour
         climbing = false;
         rb.useGravity = true;   
     }
+
 
 }
