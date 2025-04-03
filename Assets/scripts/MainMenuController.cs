@@ -27,10 +27,10 @@ public class MainMenuController : MonoBehaviour
     //when the button assigned to this function gets pressed it closes the application or closes the editro if they are in the editor
     public void QuitGame()
     {
-#if UNITY_EDITOR
+        #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
-#else
+        #else
         Application.Quit();
-#endif
+        #endif
     }
 }

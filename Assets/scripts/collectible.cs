@@ -20,7 +20,6 @@ public class collectible : MonoBehaviour
     private void RotateItem()
     {
         transform.localRotation = Quaternion.Euler(90f, Time.time * 100f, 0);
-
     }
 
 

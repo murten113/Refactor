@@ -146,7 +146,6 @@ public class PlayerScript : MonoBehaviour
 
         cameraTransform.localRotation = Quaternion.Euler(-look.y, 0, 0);
         transform.localRotation = Quaternion.Euler(0, look.x, 0);
-
     }
 
 
@@ -336,7 +335,7 @@ public class PlayerScript : MonoBehaviour
 
     #region Head bob
 
-    //save the origina camera position so you can reset it
+    //save the original camera position so you can reset it
     private void OriginalCamPos()
     {
         originalCameraPosition = cameraTransform.localPosition;
