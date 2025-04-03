@@ -69,6 +69,12 @@ public class PlayerScript : MonoBehaviour
 
     public RaycastHit frontwallHit;
     private bool wallFront;
+
+    [Header("Head Bobbing")]
+    [SerializeField] private float bobFrequency = 5f;
+    [SerializeField] private float bobAmplitude = 0.05f;
+    private float bobTimer;
+    private Vector3 originalCameraPosition;
     #endregion
 
 
@@ -90,7 +96,10 @@ public class PlayerScript : MonoBehaviour
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+
         ResetTimer();
+
+        OriginalCamPos();
     }
 
 
@@ -108,6 +117,8 @@ public class PlayerScript : MonoBehaviour
         ClimbEnable();
 
         UpdateGravity();
+
+        ApplyHeadBobbing();
     }
 
     private void OnEnable()
@@ -141,7 +152,7 @@ public class PlayerScript : MonoBehaviour
     }
 
 
-    //get the needed input for the movement
+    //Set the movement input
     Vector3 GetMovementInput()
     {
         var moveInput = moveAction.ReadValue<Vector2>();
@@ -351,6 +362,33 @@ public class PlayerScript : MonoBehaviour
         {
             velocity.y += gravity.y;
             Debug.Log("Falling - Gravity applied: " + gravity.y);
+        }
+    }
+    #endregion
+
+    #region Head bob
+
+    //save the origina camera position so you can reset it
+    private void OriginalCamPos()
+    {
+        originalCameraPosition = cameraTransform.localPosition;
+    }
+
+
+    //check if the player's velocity is faster than statonary and check if the player is grounded so the head doesnt bob in the air
+    //if all those are true then make the camera go up and down corresponding to the speed that the player is moving
+    private void ApplyHeadBobbing()
+    {
+        if (Controller.velocity.magnitude > 0.1f && Controller.isGrounded)
+        {
+            bobTimer += Time.deltaTime * (velocity.magnitude / moveSpeed) * bobFrequency;
+            float bobOffset = Mathf.Sin(bobTimer) * bobAmplitude;
+            cameraTransform.localPosition = originalCameraPosition + new Vector3(0, bobOffset, 0);
+        }
+        else
+        {
+            bobTimer = 0;
+            cameraTransform.localPosition = Vector3.Lerp(cameraTransform.localPosition, originalCameraPosition, Time.deltaTime * 5f);
         }
     }
     #endregion
