@@ -77,7 +77,6 @@ public class PlayerScript : MonoBehaviour
     private Vector3 originalCameraPosition;
     #endregion
 
-
     #region Start of script and update
     //get all the needed components when the script first starts
     private void Awake()
@@ -134,7 +133,6 @@ public class PlayerScript : MonoBehaviour
         OnBeforeMove -= SprintCont;
     }
     #endregion
-
 
     #region Basic movement
     //read the mouse input and add it to the camera so it follows

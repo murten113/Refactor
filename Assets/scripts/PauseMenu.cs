@@ -4,14 +4,16 @@ using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
+    #region get stuff
     public GameObject pauseMenuUI;
     public Button resumeButton;
     public Button mainMenuButton;
     public Button quitButton;
 
     private bool isPaused = false;
+    #endregion
 
-
+    #region start and update
     //this part first disables the ui and makes listeners for all the buttons
     private void Start()
     {
@@ -28,8 +30,9 @@ public class PauseMenu : MonoBehaviour
     {
         CheckPause();
     }
+    #endregion
 
-
+    #region pause check
     //this checks if the escape key gets pressed, if so then toggle between activating the pause menu or deactivating it
     private void CheckPause()
     {
@@ -45,8 +48,9 @@ public class PauseMenu : MonoBehaviour
             }
         }
     }
-    
+    #endregion
 
+    #region pause
     //if this gets called activate the ui, pause the game time and unlock the cursor so the player can interact with the buttons
     public void Pause()
     {
@@ -56,7 +60,9 @@ public class PauseMenu : MonoBehaviour
         Cursor.visible = true;
         isPaused = true;
     }
+    #endregion
 
+    #region button functions
     //if this button gets pressed: hide the ui, resume the time and lock the cursor so the plaer can move normally
     public void Resume()
     {
@@ -83,4 +89,5 @@ public class PauseMenu : MonoBehaviour
         UnityEditor.EditorApplication.isPlaying = false;
 #endif
     }
+    #endregion
 }
