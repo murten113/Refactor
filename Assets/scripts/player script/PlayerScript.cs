@@ -269,33 +269,17 @@ public class PlayerScript : MonoBehaviour
     {
         if (wallFront && Input.GetKey(KeyCode.W) && wallLookingAngle < maxWallLookingAngle)
         {
-            Debug.Log("Conditions met for climbing!");
-
             if (!climbing && climbTimer > 0)
-            {
-                Debug.Log("Starting to climb...");
                 StartClimbing();
-            }
 
             if (climbTimer > 0)
-            {
                 climbTimer -= Time.deltaTime;
-                Debug.Log("Climbing timer: " + climbTimer);
-            }
+
             if (climbTimer <= 0)
-            {
-                Debug.Log("Climb timer exhausted. Stopping climb.");
                 StopClimbing();
-            }
         }
-        else
-        {
-            if (climbing)
-            {
-                Debug.Log("Stopping climb.");
+        else if(climbing)
                 StopClimbing();
-            }
-        }
     }
     #endregion
 
@@ -306,14 +290,7 @@ public class PlayerScript : MonoBehaviour
         wallFront = Physics.SphereCast(transform.position, sphereCastRadius, orientation.forward, out frontwallHit, detectionLength, whatIsWall);
 
         if (wallFront)
-        {
             wallLookingAngle = Vector3.Angle(orientation.forward, -frontwallHit.normal);
-            Debug.Log("Wall detected! Angle: " + wallLookingAngle);
-        }
-        else
-        {
-            Debug.Log("No wall detected.");
-        }
     }
 
 
@@ -321,7 +298,6 @@ public class PlayerScript : MonoBehaviour
     private void ClimbingMovement()
     {
         rb.velocity = new Vector3(rb.velocity.x, climbSpeed, rb.velocity.z);
-        Debug.Log("Climbing... Velocity: " + rb.velocity);
     }
 
 
@@ -346,21 +322,15 @@ public class PlayerScript : MonoBehaviour
         var gravity = Physics.gravity * mass * Time.deltaTime;
 
         if (climbing)
-        {
             velocity.y = climbSpeed;
-            Debug.Log("Climbing - No gravity applied.");
-        }
+
         else if (Controller.isGrounded)
         {
             velocity.y = -1f;
             climbTimer = maxClimbTime;
-            Debug.Log("Grounded - Gravity reset.");
         }
         else
-        {
             velocity.y += gravity.y;
-            Debug.Log("Falling - Gravity applied: " + gravity.y);
-        }
     }
     #endregion
 
