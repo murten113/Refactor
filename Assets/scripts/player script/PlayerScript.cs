@@ -8,23 +8,22 @@ using UnityEngine.UI;
 
 public class PlayerScript : MonoBehaviour
 {
+
+    #region get all needed stuff
     [Header("Basic Movement")]
-    [SerializeField] public float mouseSens = 3f;
-    [SerializeField] public float moveSpeed = 6f;
-    [SerializeField] public float mass = 1f;
-    [SerializeField] public float acceleration = 20f;
+    [SerializeField] private float mouseSens = 3f;
+    [SerializeField] private float moveSpeed = 6f;
+    [SerializeField] private float mass = 1f;
+    [SerializeField] private float acceleration = 20f;
     [SerializeField] private Transform cameraTransform;
 
     public event Action OnBeforeMove;
 
     internal float movementSpeedMultiplier;
 
-    public Climbing Climbing;
-
     PlayerInput playerInput;
     InputAction moveAction;
     InputAction lookAction;
-
 
     internal CharacterController Controller;
     internal Vector3 velocity;
@@ -70,9 +69,10 @@ public class PlayerScript : MonoBehaviour
 
     public RaycastHit frontwallHit;
     private bool wallFront;
+    #endregion
 
 
-
+    #region Start of script and update
     //get all the needed components when the script first starts
     private void Awake()
     {
@@ -122,8 +122,10 @@ public class PlayerScript : MonoBehaviour
         OnBeforeMove -= JumpCont;
         OnBeforeMove -= SprintCont;
     }
+    #endregion
 
 
+    #region Basic movement
     //read the mouse input and add it to the camera so it follows
     public void UpdateLook()
     {
@@ -170,7 +172,9 @@ public class PlayerScript : MonoBehaviour
 
         Controller.Move(velocity * Time.deltaTime);
     }
+    #endregion
 
+    #region Jumping
     public void OnJump()
     {
         tryingToJump = true;
@@ -188,8 +192,9 @@ public class PlayerScript : MonoBehaviour
 
         tryingToJump = false;
     }
+    #endregion
 
-
+    #region Sprinting
     private void SetStartStamina()
     {
         if (staminaBar != null)
@@ -236,7 +241,9 @@ public class PlayerScript : MonoBehaviour
         else
             isSprinting = false;
     }
+    #endregion
 
+    #region Climbing
     private void ResetTimer()
     {
         climbTimer = maxClimbTime;
@@ -281,8 +288,9 @@ public class PlayerScript : MonoBehaviour
             }
         }
     }
+    #endregion
 
-
+    #region Wall detection
     //check if the player is looking at a wall at the right angle and distance for climbing 
     private void WallCheck()
     {
@@ -320,7 +328,9 @@ public class PlayerScript : MonoBehaviour
         climbing = false;
         rb.useGravity = true;
     }
+    #endregion
 
+    #region gravity cont
     //when the player is climbing turn the player script gravity off so it doesnt interfere, and when the player is grounded reset the climb timer and if he stopped climbing reapply gravity
     public void UpdateGravity()
     {
@@ -343,5 +353,6 @@ public class PlayerScript : MonoBehaviour
             Debug.Log("Falling - Gravity applied: " + gravity.y);
         }
     }
+    #endregion
 
 }
