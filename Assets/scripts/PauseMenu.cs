@@ -4,11 +4,11 @@ using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
-    #region get stuff
-    public GameObject pauseMenuUI;
-    public Button resumeButton;
-    public Button mainMenuButton;
-    public Button quitButton;
+    #region References
+    [SerializeField] private GameObject pauseMenuUI;
+    [SerializeField] private Button resumeButton;
+    [SerializeField] private Button mainMenuButton;
+    [SerializeField] private Button quitButton;
 
     private bool isPaused = false;
     #endregion

@@ -1805,6 +1805,12 @@ GameObject:
   - component: {fileID: 580516608}
   - component: {fileID: 580516611}
   - component: {fileID: 580516614}
+  - component: {fileID: 580516620}
+  - component: {fileID: 580516619}
+  - component: {fileID: 580516618}
+  - component: {fileID: 580516617}
+  - component: {fileID: 580516616}
+  - component: {fileID: 580516615}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -1923,32 +1929,102 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 612562b75badb60439bb0a779fbf5152, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSens: 3
-  moveSpeed: 6
+--- !u!114 &580516615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 580516604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c5ff65bb8074a748abf7d7a3f430c5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bobFrequency: 5
+  bobAmplitude: 0.05
+--- !u!114 &580516616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 580516604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ab8311d70c3fa24f802eafa364cf627, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   mass: 1
-  acceleration: 20
-  cameraTransform: {fileID: 963194228}
-  jumpSpeed: 7
-  jumpPressBufferTime: 0.05
-  speedMultiplier: 2
-  maxStamina: 5
-  sprintDrainRate: 1
-  staminaRegenRate: 0.5
-  staminaBar: {fileID: 16995012}
-  orientation: {fileID: 963194228}
+--- !u!114 &580516617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 580516604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e0e384e5a572414ca358754d3b6414a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orientation: {fileID: 1885439815}
   rb: {fileID: 580516611}
   whatIsWall:
     serializedVersion: 2
     m_Bits: 512
-  climbSpeed: 4.5
+  climbSpeed: 5
   maxClimbTime: 2
-  climbTimer: 0
-  climbing: 0
-  detectionLength: 0.8
+  detectionLength: 0.5
   sphereCastRadius: 0.3
   maxWallLookingAngle: 50
-  bobFrequency: 8
-  bobAmplitude: 0.2
+--- !u!114 &580516618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 580516604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0356539143d5ea24baa8104398902a7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speedMultiplier: 2
+  maxStamina: 5
+  sprintDrainRate: 1
+  staminaRegenRate: 1
+  staminaBar: {fileID: 16995012}
+--- !u!114 &580516619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 580516604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef4d9e4ae1828894fa491aa71763c328, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpSpeed: 10
+  jumpPressBufferTime: 0.05
+--- !u!114 &580516620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 580516604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4865f37dc37e3d74bb657c39bafb6c7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mouseSens: 3
+  moveSpeed: 6
+  acceleration: 20
+  cameraTransform: {fileID: 963194228}
 --- !u!1 &616215448
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,8 +4,8 @@ using UnityEngine.UI;
 public class MainMenuController : MonoBehaviour
 {
 
-    public Button loadGameButton;
-    public Button quitGameButton;
+    [SerializeField] private Button loadGameButton;
+    [SerializeField] private Button quitGameButton;
 
 
     //make listeners so when the button gets pressed it loads that function
